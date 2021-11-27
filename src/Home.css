@@ -1,0 +1,73 @@
+.homeContainer {
+    display: flex;
+    background-color: #c7b299;
+    height: 100vh;
+    width: 100vw;
+    flex-direction: column;
+}
+
+.headerContainer {
+    display: flex;
+    flex-direction: row;
+    margin: 2.25vw 0 0 2.25vw;
+}
+
+.headerText {
+    display: flex;
+    align-items: center;
+    margin-left: 2.25vw;
+    color: #534741;
+    font-size: 3rem;
+    font-weight: 400;
+}
+
+.headerLogo {
+    background-color: #b22234;
+    width: 8.5vw;
+    height: 8.5vw;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: #c7b299;
+    font-size: 3rem;
+    font-weight: 400;
+}
+
+.homeGridContainer {
+    display: grid;
+    grid-template-columns: 46% 54%;
+    height: 80vh;
+    width: 100vw;
+}
+
+.nftImageContainerOuter {
+    height: 100%;
+    width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.nftImageContainerInner {
+    background-color: #b22234;
+    height: 85%;
+    width: 85%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    color: #c7b299;
+}
+
+.walletButtonContainer {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.walletButton {
+    background-color: #c7b299 !important;
+}
+
+.walletImage {
+    width: 20vw;
+}

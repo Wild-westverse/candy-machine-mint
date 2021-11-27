@@ -3,6 +3,7 @@ import styled from "styled-components";
 import Countdown from "react-countdown";
 import { Button, CircularProgress, Snackbar } from "@material-ui/core";
 import Alert from "@material-ui/lab/Alert";
+import './Home.css'
 
 import * as anchor from "@project-serum/anchor";
 
@@ -181,7 +182,20 @@ const Home = (props: HomeProps) => {
 
       <MintContainer>
         {!wallet ? (
-          <ConnectButton>Connect Wallet</ConnectButton>
+          <div className='homeContainer'>
+            <div className='headerContainer'>
+              <div className='headerLogo'>LOGO</div>
+              <div className='headerText'>WILD WEST VERSE</div>
+            </div>
+            <div className='homeGridContainer'>
+              <div className='nftImageContainerOuter'>
+                <div className='nftImageContainerInner'>NFT GIF HERE</div>
+              </div>
+              <div className='walletButtonContainer'>
+                <ConnectButton className='walletButton'><img src='./connectWallet.png' alt="Connect Your Wallet" className='walletImage'/></ConnectButton>
+              </div>
+            </div>
+          </div>
         ) : (
           <MintButton
             disabled={isSoldOut || isMinting || !isActive}
