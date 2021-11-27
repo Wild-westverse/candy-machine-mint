@@ -20,7 +20,7 @@ import {
   shortenAddress,
 } from "./candy-machine";
 
-const ConnectButton = styled(WalletDialogButton)``;
+// const ConnectButton = styled(WalletDialogButton)``;
 
 const CounterText = styled.span``; // add your styles here
 
@@ -192,7 +192,7 @@ const Home = (props: HomeProps) => {
                 <div className='nftImageContainerInner'>NFT GIF HERE</div>
               </div>
               <div className='walletButtonContainer'>
-                <ConnectButton className='walletButton'><img src='./connectWallet.png' alt="Connect Your Wallet" className='walletImage'/></ConnectButton>
+                <WalletDialogButton className='walletButton'><img src='./connectWallet.png' alt="Connect Your Wallet" className='walletImage'/></WalletDialogButton>
               </div>
             </div>
           </div>
