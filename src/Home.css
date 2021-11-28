@@ -119,3 +119,73 @@
     height: 100%;
     width: 100%;
 }
+
+/* Mobile */
+.mHomeContainer {
+    display: flex;
+    background-color: #c7b299;
+    flex-direction: column;
+}
+
+.mHeaderContainer {
+    display: flex;
+    flex-direction: row;
+    margin: 2rem;
+}
+
+.mHeaderLogo {
+    height: 4rem;
+    width: 4rem;
+}
+
+.mHeaderText {
+    display: flex;
+    align-items: center;
+    margin-left: 2.25vw;
+    color: #534741;
+    font-size: 1.3rem;
+    font-weight: 400;
+}
+
+.mNftImageContainerOuter {
+    height: 85vw;
+    width: 100vw;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+.mNftImageContainerInner {
+    height: 70vw;
+    width: 70vw;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.mWalletContainer {
+    height: 10rem;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+}
+
+.mWalletImage{
+    width: 50vw;
+}
+
+.mWalletTextAreaContainer {
+    /* width: 100vw; */
+    margin: 0 12vw;
+}
+
+.mMintContainer {
+    height: 5rem;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+}
+.mMintImage {
+    width: 30vw;
+}

@@ -4,6 +4,7 @@ import Countdown from "react-countdown";
 import { Button, CircularProgress, Snackbar } from "@material-ui/core";
 import Alert from "@material-ui/lab/Alert";
 import './Home.css'
+import { useMediaQuery } from 'react-responsive'
 
 import * as anchor from "@project-serum/anchor";
 
@@ -57,6 +58,7 @@ const Home = (props: HomeProps) => {
 
   const wallet = useAnchorWallet();
   const [candyMachine, setCandyMachine] = useState<CandyMachine>();
+  const isMobilePhone = useMediaQuery({query: '(max-width: 850px)'})
 
   const refreshCandyMachineState = () => {
     (async () => {
@@ -168,7 +170,7 @@ const Home = (props: HomeProps) => {
 
   return (
     <main>
-      {wallet && 
+      {wallet && !isMobilePhone &&
         <div className='homeContainer'>
           <div className='headerContainer'>
             <div className='headerLogo'><img className='imageContainer' src="./favicon.ico" alt="" /></div>
@@ -176,7 +178,7 @@ const Home = (props: HomeProps) => {
           </div>
           <div className='homeGridContainer'>
             <div className='nftImageContainerOuter'>
-              <div className='nftImageContainerInner'><img src="./nft.gif" alt="" /></div>
+              <div className='nftImageContainerInner'><img className='imageContainer' src="./nft.gif" alt="" /></div>
             </div>
             <div className='walletContainer' >
               <div className='walletInnerContainer'>
@@ -220,8 +222,54 @@ const Home = (props: HomeProps) => {
           </div>
         </div>
       }
+      {wallet && isMobilePhone &&
+        <div className='mHomeContainer'>
+          <div className='mHeaderContainer'>
+            <div className='mHeaderLogo'><img className='imageContainer' src="./favicon.ico" alt="" /></div>
+            <div className='mHeaderText'>WILD WEST VERSE</div>
+          </div>
+          <div className='mWalletTextAreaContainer'>
+            <div className='walletInnerTextContainer'><p className='walletInnerTextLeft'>ADDRESS:</p><p className='walletInnerTextRight'>{shortenAddress(wallet.publicKey.toBase58() || "")}</p></div>
+            <div className='walletInnerTextContainer'><p className='walletInnerTextLeft'>SOL BALANCE:</p><p className='walletInnerTextRight'>{(balance || 0).toLocaleString()} SOL</p></div>
+            <div className='walletInnerTextContainer'><p className='walletInnerTextLeft'>TOTAL:</p><p className='walletInnerTextRight'>{itemsAvailable}</p></div>
+            <div className='walletInnerTextContainer'><p className='walletInnerTextLeft'>AVAILABLE:</p><p className='walletInnerTextRight'>{itemsRemaining}</p></div>
+            <div className='walletInnerTextContainer'><p className='walletInnerTextLeft'>REDEEMED:</p><p className='walletInnerTextRight'>{itemsRedeemed}</p></div>
+            <div className='walletInnerTextContainer'><p className='walletInnerTextLeft'>PRICE:</p><p className='walletInnerTextRight'>0.5 SOL</p></div>
+          </div>
+          <div className='mMintContainer'>
+            <MintContainer>
+              <MintButton
+                disabled={isSoldOut || isMinting || !isActive}
+                onClick={onMint}
+                variant="contained"
+                className='mintButton'
+              >
+                {isSoldOut ? (
+                  "SOLD OUT"
+                ) : isActive ? (
+                  isMinting ? (
+                    <CircularProgress />
+                  ) : (
+                    <img src='./mintButton.png' alt="Connect Your Wallet" className='mMintImage'/>
+                  )
+                ) : (
+                  <Countdown
+                    date={startDate}
+                    onMount={({ completed }) => completed && setIsActive(true)}
+                    onComplete={() => setIsActive(true)}
+                    renderer={renderCounter}
+                  />
+                )}
+              </MintButton>
+            </MintContainer>
+          </div>
+          <div className='mNftImageContainerOuter'>
+            <div className='mNftImageContainerInner'><img className='imageContainer' src="./nft.gif" alt="" /></div>
+          </div>
+        </div>
+      }
       <MintContainer>
-        {!wallet && (
+        {!wallet && !isMobilePhone && (
           <div className='homeContainer'>
             <div className='headerContainer'>
               <div className='headerLogo'><img className='imageContainer' src="./favicon.ico" alt="" /></div>
@@ -234,6 +282,20 @@ const Home = (props: HomeProps) => {
               <div className='walletContainer'>
                 <WalletDialogButton className='walletButton'><img src='./connectWallet.png' alt="Connect Your Wallet" className='walletImage'/></WalletDialogButton>
               </div>
+            </div>
+          </div>
+        )}
+        {!wallet && isMobilePhone && (
+          <div className='mHomeContainer'>
+            <div className='mHeaderContainer'>
+              <div className='mHeaderLogo'><img className='imageContainer' src="./favicon.ico" alt="" /></div>
+              <div className='mHeaderText'>WILD WEST VERSE</div>
+            </div>
+            <div className='mWalletContainer'>
+              <WalletDialogButton className='walletButton'><img src='./connectWallet.png' alt="Connect Your Wallet" className='mWalletImage'/></WalletDialogButton>
+            </div>
+            <div className='mNftImageContainerOuter'>
+              <div className='mNftImageContainerInner'><img className='imageContainer' src="./nft.gif" alt="" /></div>
             </div>
           </div>
         )}
