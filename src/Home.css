@@ -58,10 +58,11 @@
     color: #c7b299;
 }
 
-.walletButtonContainer {
+.walletContainer {
     display: flex;
     align-items: center;
     justify-content: center;
+    flex-direction: column;
 }
 
 .walletButton {
@@ -70,4 +71,47 @@
 
 .walletImage {
     width: 20vw;
+}
+
+.walletInnerContainer {
+    height: 70%;
+    width: 70%;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    flex-direction: column;
+}
+
+.walletTextAreaContainer {
+    width: 100%;
+}
+
+.walletInnerTextContainer{
+    display: flex;
+    justify-content: space-between;
+    width: 100%;
+    font-size: 1.2rem;
+}
+
+.walletInnerTextLeft{
+    color: #b22234;
+}
+
+.walletInnerTextRight{
+    color: #534741;
+}
+
+.mintButton {
+    background-color: #c7b299 !important;
+}
+
+.mintImage {
+    width: 10vw;
+}
+
+.MuiButton-contained:hover {
+    box-shadow: none !important;
+}
+.MuiButton-contained {
+    box-shadow: none !important;
 }

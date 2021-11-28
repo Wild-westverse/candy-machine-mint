@@ -168,20 +168,60 @@ const Home = (props: HomeProps) => {
 
   return (
     <main>
-      {wallet && (
-        <p>Wallet {shortenAddress(wallet.publicKey.toBase58() || "")}</p>
-      )}
-
-      {wallet && <p>Balance: {(balance || 0).toLocaleString()} SOL</p>}
-
-      {wallet && <p>Total Available: {itemsAvailable}</p>}
-
-      {wallet && <p>Redeemed: {itemsRedeemed}</p>}
-
-      {wallet && <p>Remaining: {itemsRemaining}</p>}
-
+      {wallet && 
+        <div className='homeContainer'>
+          <div className='headerContainer'>
+            <div className='headerLogo'>LOGO</div>
+            <div className='headerText'>WILD WEST VERSE</div>
+          </div>
+          <div className='homeGridContainer'>
+            <div className='nftImageContainerOuter'>
+              <div className='nftImageContainerInner'><img src="./nft.gif" alt="" /></div>
+            </div>
+            <div className='walletContainer' >
+              <div className='walletInnerContainer'>
+                <div className='walletTextAreaContainer'>
+                  <div className='walletInnerTextContainer'><p className='walletInnerTextLeft'>ADDRESS:</p><p className='walletInnerTextRight'>{shortenAddress(wallet.publicKey.toBase58() || "")}</p></div>
+                  <div className='walletInnerTextContainer'><p className='walletInnerTextLeft'>SOL BALANCE:</p><p className='walletInnerTextRight'>{(balance || 0).toLocaleString()} SOL</p></div>
+                  <div className='walletInnerTextContainer'><p className='walletInnerTextLeft'>TOTAL:</p><p className='walletInnerTextRight'>{itemsAvailable}</p></div>
+                  <div className='walletInnerTextContainer'><p className='walletInnerTextLeft'>AVAILABLE:</p><p className='walletInnerTextRight'>{itemsRemaining}</p></div>
+                  <div className='walletInnerTextContainer'><p className='walletInnerTextLeft'>REDEEMED:</p><p className='walletInnerTextRight'>{itemsRedeemed}</p></div>
+                  <div className='walletInnerTextContainer'><p className='walletInnerTextLeft'>PRICE:</p><p className='walletInnerTextRight'>0.5 SOL</p></div>
+                </div>
+                <div className='walletButtonContainer'>
+                  <MintContainer>
+                    <MintButton
+                      disabled={isSoldOut || isMinting || !isActive}
+                      onClick={onMint}
+                      variant="contained"
+                      className='mintButton'
+                    >
+                      {isSoldOut ? (
+                        "SOLD OUT"
+                      ) : isActive ? (
+                        isMinting ? (
+                          <CircularProgress />
+                        ) : (
+                          <img src='./mintButton.png' alt="Connect Your Wallet" className='mintImage'/>
+                        )
+                      ) : (
+                        <Countdown
+                          date={startDate}
+                          onMount={({ completed }) => completed && setIsActive(true)}
+                          onComplete={() => setIsActive(true)}
+                          renderer={renderCounter}
+                        />
+                      )}
+                    </MintButton>
+                  </MintContainer>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      }
       <MintContainer>
-        {!wallet ? (
+        {!wallet && (
           <div className='homeContainer'>
             <div className='headerContainer'>
               <div className='headerLogo'>LOGO</div>
@@ -189,36 +229,13 @@ const Home = (props: HomeProps) => {
             </div>
             <div className='homeGridContainer'>
               <div className='nftImageContainerOuter'>
-                <div className='nftImageContainerInner'>NFT GIF HERE</div>
+                <div className='nftImageContainerInner'><img src="./nft.gif" alt="" /></div>
               </div>
-              <div className='walletButtonContainer'>
+              <div className='walletContainer'>
                 <WalletDialogButton className='walletButton'><img src='./connectWallet.png' alt="Connect Your Wallet" className='walletImage'/></WalletDialogButton>
               </div>
             </div>
           </div>
-        ) : (
-          <MintButton
-            disabled={isSoldOut || isMinting || !isActive}
-            onClick={onMint}
-            variant="contained"
-          >
-            {isSoldOut ? (
-              "SOLD OUT"
-            ) : isActive ? (
-              isMinting ? (
-                <CircularProgress />
-              ) : (
-                "MINT"
-              )
-            ) : (
-              <Countdown
-                date={startDate}
-                onMount={({ completed }) => completed && setIsActive(true)}
-                onComplete={() => setIsActive(true)}
-                renderer={renderCounter}
-              />
-            )}
-          </MintButton>
         )}
       </MintContainer>
 
