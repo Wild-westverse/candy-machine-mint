@@ -22,7 +22,6 @@
 }
 
 .headerLogo {
-    background-color: #b22234;
     width: 8.5vw;
     height: 8.5vw;
     display: flex;
@@ -114,4 +113,9 @@
 }
 .MuiButton-contained {
     box-shadow: none !important;
+}
+
+.imageContainer {
+    height: 100%;
+    width: 100%;
 }

@@ -171,7 +171,7 @@ const Home = (props: HomeProps) => {
       {wallet && 
         <div className='homeContainer'>
           <div className='headerContainer'>
-            <div className='headerLogo'>LOGO</div>
+            <div className='headerLogo'><img className='imageContainer' src="./favicon.ico" alt="" /></div>
             <div className='headerText'>WILD WEST VERSE</div>
           </div>
           <div className='homeGridContainer'>
@@ -224,12 +224,12 @@ const Home = (props: HomeProps) => {
         {!wallet && (
           <div className='homeContainer'>
             <div className='headerContainer'>
-              <div className='headerLogo'>LOGO</div>
+              <div className='headerLogo'><img className='imageContainer' src="./favicon.ico" alt="" /></div>
               <div className='headerText'>WILD WEST VERSE</div>
             </div>
             <div className='homeGridContainer'>
               <div className='nftImageContainerOuter'>
-                <div className='nftImageContainerInner'><img src="./nft.gif" alt="" /></div>
+                <div className='nftImageContainerInner'><img className='imageContainer' src="./nft.gif" alt="" /></div>
               </div>
               <div className='walletContainer'>
                 <WalletDialogButton className='walletButton'><img src='./connectWallet.png' alt="Connect Your Wallet" className='walletImage'/></WalletDialogButton>
