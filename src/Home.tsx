@@ -173,8 +173,7 @@ const Home = (props: HomeProps) => {
       {wallet && !isMobilePhone &&
         <div className='homeContainer'>
           <div className='headerContainer'>
-            <div className='headerLogo'><img className='imageContainer' src="./favicon.ico" alt="" /></div>
-            <div className='headerText'>WILD WEST VERSE</div>
+            <img className='imageContainer' src="./mintingpagelogo.svg" alt="" />
           </div>
           <div className='homeGridContainer'>
             <div className='nftImageContainerOuter'>
@@ -225,16 +224,15 @@ const Home = (props: HomeProps) => {
       {wallet && isMobilePhone &&
         <div className='mHomeContainer'>
           <div className='mHeaderContainer'>
-            <div className='mHeaderLogo'><img className='imageContainer' src="./favicon.ico" alt="" /></div>
-            <div className='mHeaderText'>WILD WEST VERSE</div>
+            <img className='imageContainer' src="./mintingpagelogo.svg" alt="" />
           </div>
           <div className='mWalletTextAreaContainer'>
-            <div className='walletInnerTextContainer'><p className='walletInnerTextLeft'>ADDRESS:</p><p className='walletInnerTextRight'>{shortenAddress(wallet.publicKey.toBase58() || "")}</p></div>
-            <div className='walletInnerTextContainer'><p className='walletInnerTextLeft'>SOL BALANCE:</p><p className='walletInnerTextRight'>{(balance || 0).toLocaleString()} SOL</p></div>
-            <div className='walletInnerTextContainer'><p className='walletInnerTextLeft'>TOTAL:</p><p className='walletInnerTextRight'>{itemsAvailable}</p></div>
-            <div className='walletInnerTextContainer'><p className='walletInnerTextLeft'>AVAILABLE:</p><p className='walletInnerTextRight'>{itemsRemaining}</p></div>
-            <div className='walletInnerTextContainer'><p className='walletInnerTextLeft'>REDEEMED:</p><p className='walletInnerTextRight'>{itemsRedeemed}</p></div>
-            <div className='walletInnerTextContainer'><p className='walletInnerTextLeft'>PRICE:</p><p className='walletInnerTextRight'>0.5 SOL</p></div>
+            <div className='mWalletInnerTextContainer'><p className='walletInnerTextLeft'>ADDRESS:</p><p className='walletInnerTextRight'>{shortenAddress(wallet.publicKey.toBase58() || "")}</p></div>
+            <div className='mWalletInnerTextContainer'><p className='walletInnerTextLeft'>SOL BALANCE:</p><p className='walletInnerTextRight'>{(balance || 0).toLocaleString()} SOL</p></div>
+            <div className='mWalletInnerTextContainer'><p className='walletInnerTextLeft'>TOTAL:</p><p className='walletInnerTextRight'>{itemsAvailable}</p></div>
+            <div className='mWalletInnerTextContainer'><p className='walletInnerTextLeft'>AVAILABLE:</p><p className='walletInnerTextRight'>{itemsRemaining}</p></div>
+            <div className='mWalletInnerTextContainer'><p className='walletInnerTextLeft'>REDEEMED:</p><p className='walletInnerTextRight'>{itemsRedeemed}</p></div>
+            <div className='mWalletInnerTextContainer'><p className='walletInnerTextLeft'>PRICE:</p><p className='walletInnerTextRight'>0.5 SOL</p></div>
           </div>
           <div className='mMintContainer'>
             <MintContainer>
@@ -272,8 +270,7 @@ const Home = (props: HomeProps) => {
         {!wallet && !isMobilePhone && (
           <div className='homeContainer'>
             <div className='headerContainer'>
-              <div className='headerLogo'><img className='imageContainer' src="./favicon.ico" alt="" /></div>
-              <div className='headerText'>WILD WEST VERSE</div>
+              <img className='imageContainer' src="./mintingpagelogo.svg" alt="" />
             </div>
             <div className='homeGridContainer'>
               <div className='nftImageContainerOuter'>
@@ -288,8 +285,7 @@ const Home = (props: HomeProps) => {
         {!wallet && isMobilePhone && (
           <div className='mHomeContainer'>
             <div className='mHeaderContainer'>
-              <div className='mHeaderLogo'><img className='imageContainer' src="./favicon.ico" alt="" /></div>
-              <div className='mHeaderText'>WILD WEST VERSE</div>
+              <img className='imageContainer' src="./mintingpagelogo.svg" alt="" />
             </div>
             <div className='mWalletContainer'>
               <WalletDialogButton className='walletButton'><img src='./connectWallet.png' alt="Connect Your Wallet" className='mWalletImage'/></WalletDialogButton>

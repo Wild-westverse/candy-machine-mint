@@ -7,9 +7,9 @@
 }
 
 .headerContainer {
-    display: flex;
-    flex-direction: row;
-    margin: 2.25vw 0 0 2.25vw;
+    height: 18vh;
+    width: 40vw;
+    margin-left: 2.25vw;
 }
 
 .headerText {
@@ -48,9 +48,8 @@
 }
 
 .nftImageContainerInner {
-    background-color: #b22234;
-    height: 85%;
-    width: 85%;
+    height: 35vw;
+    width: 35vw;
     display: flex;
     justify-content: center;
     align-items: center;
@@ -73,8 +72,7 @@
 }
 
 .walletInnerContainer {
-    height: 70%;
-    width: 70%;
+    width: 80%;
     display: flex;
     justify-content: space-between;
     align-items: center;
@@ -89,7 +87,8 @@
     display: flex;
     justify-content: space-between;
     width: 100%;
-    font-size: 1.2rem;
+    font-size: 1.5rem;
+    line-height: 0.5rem;
 }
 
 .walletInnerTextLeft{
@@ -186,6 +185,33 @@
     justify-content: center;
     flex-direction: column;
 }
-.mMintImage {
-    width: 30vw;
+.mWalletInnerTextContainer{
+    display: flex;
+    justify-content: space-between;
+    width: 100%;
+}
+
+@media (max-width: 1000px) {
+    .mMintImage {
+        width: 20vw;
+    }
+    .mWalletInnerTextContainer{
+        font-size: 1.1rem;
+    }
+}
+@media (max-width: 500px) {
+    .mMintImage {
+        width: 30vw;
+    }
+    .mWalletInnerTextContainer{
+        font-size: 1rem;
+    }
+}
+@media (max-width: 350px) {
+    .mMintImage {
+        width: 30vw;
+    }
+    .mWalletInnerTextContainer{
+        font-size: 0.8rem;
+    }
 }
